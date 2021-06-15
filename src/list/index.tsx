@@ -28,6 +28,12 @@ const getMovieQueryParams = ({ movieTitle, year }: MovieDetailsFormData) => {
   return params.toString();
 };
 
+if (!process.env.REACT_APP_OMDB_API_KEY) {
+  console.error(
+    "Please set the REACT_APP_OMDB_API_KEY environment variable in .env file. See README.md for instructions"
+  );
+}
+
 const fetchMovieDetails = (
   formData: MovieDetailsFormData
 ): Promise<OMDbSearchResponse> =>
