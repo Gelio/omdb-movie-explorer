@@ -1,14 +1,27 @@
-import { Box, Card, CardContent, Typography } from "@material-ui/core";
+import {
+  Box,
+  Card,
+  CardContent,
+  Container,
+  Typography,
+} from "@material-ui/core";
+import { MovieDetailsForm } from "./form";
 
 function App() {
   return (
-    <Box width={300} height={200} margin={2}>
-      <Card>
-        <CardContent>
-          <Typography>Hey</Typography>
-        </CardContent>
-      </Card>
-    </Box>
+    <Container>
+      <Box marginTop={5}>
+        <Typography variant="h2" component="h1" align="center" gutterBottom>
+          OMDb Explorer
+        </Typography>
+
+        <Card>
+          <CardContent>
+            <MovieDetailsForm onSubmit={console.log} />
+          </CardContent>
+        </Card>
+      </Box>
+    </Container>
   );
 }
 
