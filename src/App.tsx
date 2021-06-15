@@ -5,9 +5,14 @@ import {
   Container,
   Typography,
 } from "@material-ui/core";
-import { MovieDetailsForm } from "./form";
+import { useState } from "react";
+import { MovieDetailsForm, MovieDetailsFormData } from "./form";
+import { MovieList } from "./list";
 
 function App() {
+  const [submittedFormData, setSubmittedFormData] =
+    useState<MovieDetailsFormData | null>(null);
+
   return (
     <Container>
       <Box marginTop={5}>
@@ -17,9 +22,13 @@ function App() {
 
         <Card>
           <CardContent>
-            <MovieDetailsForm onSubmit={console.log} />
+            <MovieDetailsForm onSubmit={setSubmittedFormData} />
           </CardContent>
         </Card>
+
+        {submittedFormData && (
+          <MovieList submittedFormData={submittedFormData} />
+        )}
       </Box>
     </Container>
   );
