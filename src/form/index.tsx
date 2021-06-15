@@ -5,16 +5,22 @@ import { Controller, useForm } from "react-hook-form";
 const useStyles = makeStyles((theme) => ({
   formInput: {
     marginRight: theme.spacing(1),
+    marginBottom: theme.spacing(1),
   },
   searchInput: {
     flex: 1,
+    minWidth: "160px",
   },
   yearOfReleaseInput: {
     width: "160px",
   },
+  searchButton: {
+    marginBottom: theme.spacing(1),
+  },
   form: {
     display: "flex",
     justifyContent: "space-between",
+    flexWrap: "wrap",
   },
 }));
 
@@ -80,6 +86,7 @@ export const MovieDetailsForm: VoidFunctionComponent<MovieDetailsFormProps> = ({
         color="primary"
         type="submit"
         disabled={isSubmitted && !isValid}
+        className={classes.searchButton}
       >
         Search
       </Button>
